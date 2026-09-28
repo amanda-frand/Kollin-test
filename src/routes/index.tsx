@@ -226,7 +226,7 @@ function Index() {
       </main>
 
       <nav aria-label="Main navigation" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t-2 border-border bg-card px-3 py-2 lg:hidden">
-        <a href="#path-title" className="flex flex-col items-center gap-1 text-primary"><Home className="h-6 w-6 fill-current" /><span className="text-xs font-black">Learn</span></a>
+        <a href="#path-title" className="flex flex-col items-center gap-1 text-primary"><Home className="h-6 w-6 fill-current" /><span className="text-xs font-black">Övningar</span></a>
         <a href="#practice-title" className="flex flex-col items-center gap-1 text-muted-foreground"><BookOpen className="h-6 w-6" /><span className="text-xs font-black">Practice</span></a>
         <a href="#progress" className="flex flex-col items-center gap-1 text-muted-foreground"><BarChart3 className="h-6 w-6" /><span className="text-xs font-black">Progress</span></a>
       </nav>
