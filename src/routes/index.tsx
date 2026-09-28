@@ -75,11 +75,11 @@ function Stat({ icon, value, label }: { icon: ReactNode; value: string; label: s
 }
 
 const lessons = [
-  { label: "Counting", status: "done", icon: Check },
-  { label: "Addition", status: "done", icon: Star },
-  { label: "Subtraction", status: "current", icon: Play },
-  { label: "Number bonds", status: "locked", icon: Lock },
-  { label: "Mixed practice", status: "locked", icon: Trophy },
+  { label: "Absolutbelopp", status: "done", icon: Check },
+  { label: "Derivations definition\n& deriverbarhet", status: "done", icon: Star },
+  { label: "Funktionsinvers", status: "current", icon: Play },
+  { label: "Gränsvärde", status: "locked", icon: Lock },
+  { label: "Slumpmässiga\nfrågor", status: "locked", icon: Trophy },
 ] as const;
 
 function LessonPath() {
@@ -87,8 +87,8 @@ function LessonPath() {
     <section aria-labelledby="path-title" className="relative mx-auto w-full max-w-xl pb-8">
       <div className="mb-8 flex items-end justify-between">
         <div>
-          <p className="text-sm font-black uppercase text-secondary">Unit 2</p>
-          <h1 id="path-title" className="mt-1 font-display text-3xl font-black text-foreground sm:text-4xl">Addition & subtraction</h1>
+          <p className="text-sm font-black uppercase text-secondary">ÄMNEN</p>
+          <h1 id="path-title" className="mt-1 font-display text-3xl font-black text-foreground sm:text-4xl">Funktionslära</h1>
         </div>
         <span className="rounded-lg bg-secondary/10 px-3 py-2 text-sm font-black text-secondary">8 / 15</span>
       </div>
@@ -152,7 +152,7 @@ function PracticeCard() {
         <Mascot small />
       </div>
       <div className="p-5 sm:p-6">
-        <p className="text-sm font-bold text-muted-foreground">Solve the equation</p>
+        <p className="text-sm font-bold text-muted-foreground">Lös denna gränsvärde</p>
         <p className="my-6 text-center text-5xl font-black text-foreground" aria-label="11 minus 3">11 − 3 = ?</p>
         <div className="grid grid-cols-2 gap-3">
           {answers.map((answer) => (
@@ -187,8 +187,8 @@ function Index() {
       <header className="sticky top-0 z-30 border-b-2 border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 rotate-3 place-items-center rounded-lg bg-secondary text-xl font-black text-secondary-foreground shadow-[0_4px_0_color-mix(in_oklab,var(--secondary)_65%,var(--foreground))]">M</div>
-            <span className="font-display text-2xl font-black text-primary">mathly</span>
+            <div className="grid h-10 w-10 rotate-3 place-items-center rounded-lg bg-secondary text-xl font-black text-secondary-foreground shadow-[0_4px_0_color-mix(in_oklab,var(--secondary)_65%,var(--foreground))]">K</div>
+            <span className="font-display text-2xl font-black text-primary">Kollin</span>
           </div>
           <div className="flex items-center gap-4 sm:gap-7">
             <Stat icon={<Flame className="h-6 w-6 fill-coral text-coral" />} value="12" label="Day streak" />
