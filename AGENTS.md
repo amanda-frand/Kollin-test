@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Project decisions
+
+- Keep the first release frontend-only with lesson state in React, because persistent accounts and progress were not requested.
+- Use a semantic-token-first playful learning design, so all future math experiences share the same accessible visual language.
