@@ -109,6 +109,9 @@ function LessonPath() {
                 <button
                   aria-label={`${lesson.label}, ${lesson.status}`}
                   disabled={lesson.status === "locked"}
+                  onClick={() => {
+                    if (isCurrent) document.getElementById("practice-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
                   className={`grid h-20 w-20 place-items-center rounded-full border-[7px] transition active:translate-y-1 sm:h-24 sm:w-24 ${
                     lesson.status === "done"
                       ? "border-success/30 bg-success text-success-foreground shadow-[0_7px_0_color-mix(in_oklab,var(--success)_65%,var(--foreground))]"
@@ -207,7 +210,7 @@ function Index() {
             </div>
           </div>
           <PracticeCard />
-          <section aria-label="Daily goal" className="rounded-xl border-2 border-border bg-card p-5 shadow-card">
+          <section id="progress" aria-label="Daily goal" className="scroll-mt-24 rounded-xl border-2 border-border bg-card p-5 shadow-card">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Target className="h-7 w-7 text-coral" strokeWidth={3} />
