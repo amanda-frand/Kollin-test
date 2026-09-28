@@ -20,10 +20,10 @@ import { useState, type ButtonHTMLAttributes, type ReactNode } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mathly — Math practice that feels like play" },
-      { name: "description", content: "Build real math skills through short, playful lessons and daily practice." },
-      { property: "og:title", content: "Mathly — Math practice that feels like play" },
-      { property: "og:description", content: "Build real math skills through short, playful lessons and daily practice." },
+      { title: "Kollin — Matteövning som känns som lek" },
+      { name: "description", content: "Bygg riktiga mattekunskaper genom korta, lekfulla lektioner och daglig träning." },
+      { property: "og:title", content: "Kollin — Matteövning som känns som lek" },
+      { property: "og:description", content: "Bygg riktiga mattekunskaper genom korta, lekfulla lektioner och daglig träning." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -103,7 +103,7 @@ function LessonPath() {
               <div className="relative flex flex-col items-center">
                 {isCurrent && (
                   <div className="absolute -top-11 whitespace-nowrap rounded-lg bg-foreground px-3 py-2 text-xs font-black text-background after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-[6px] after:border-transparent after:border-t-foreground">
-                    START HERE
+                    BÖRJA HÄR
                   </div>
                 )}
                 <button
@@ -146,8 +146,8 @@ function PracticeCard() {
     <section aria-labelledby="practice-title" className="overflow-hidden rounded-xl border-2 border-border bg-card shadow-card">
       <div className="flex items-center justify-between border-b-2 border-border bg-panel px-5 py-4">
         <div>
-          <p className="text-xs font-black uppercase text-secondary">Quick practice</p>
-          <h2 id="practice-title" className="mt-1 text-xl font-black text-foreground">Warm up your brain</h2>
+          <p className="text-xs font-black uppercase text-secondary">Snabb övning</p>
+          <h2 id="practice-title" className="mt-1 text-xl font-black text-foreground">Värm upp hjärnan</h2>
         </div>
         <Mascot small />
       </div>
@@ -169,11 +169,11 @@ function PracticeCard() {
         </div>
         {checked && (
           <div role="status" className={`mt-5 animate-pop rounded-lg p-4 ${correct ? "bg-success/10 text-success" : "bg-coral/10 text-coral"}`}>
-            <p className="font-black">{correct ? "Brilliant! That's exactly right." : "Almost! Try counting back three steps."}</p>
+            <p className="font-black">{correct ? "Strålande! Helt rätt." : "Nästan! Försök räkna tre steg bakåt."}</p>
           </div>
         )}
         <Button onClick={checkAnswer} disabled={selected === null} className="mt-5 w-full">
-          {checked && correct ? "Keep going" : "Check answer"}
+          {checked && correct ? "Fortsätt" : "Kontrollera svar"}
           <ChevronRight className="h-5 w-5" strokeWidth={3} />
         </Button>
       </div>
@@ -191,9 +191,9 @@ function Index() {
             <span className="font-display text-2xl font-black text-primary">Kollin</span>
           </div>
           <div className="flex items-center gap-4 sm:gap-7">
-            <Stat icon={<Flame className="h-6 w-6 fill-coral text-coral" />} value="12" label="Day streak" />
-            <Stat icon={<Heart className="h-6 w-6 fill-primary text-primary" />} value="5" label="Lives" />
-            <div className="hidden sm:block"><Stat icon={<Medal className="h-6 w-6 text-sun" />} value="840" label="Points" /></div>
+            <Stat icon={<Flame className="h-6 w-6 fill-coral text-coral" />} value="12" label="Dagar i rad" />
+            <Stat icon={<Heart className="h-6 w-6 fill-primary text-primary" />} value="5" label="Liv" />
+            <div className="hidden sm:block"><Stat icon={<Medal className="h-6 w-6 text-sun" />} value="840" label="Poäng" /></div>
           </div>
         </div>
       </header>
@@ -205,16 +205,16 @@ function Index() {
           <div className="flex items-center gap-4 rounded-xl bg-primary px-5 py-5 text-primary-foreground shadow-button">
             <Mascot small />
             <div>
-              <p className="text-lg font-black">Hey, number hero!</p>
-              <p className="mt-1 text-sm font-bold opacity-85">One quick lesson keeps your streak alive.</p>
+              <p className="text-lg font-black">Hej, sifferhjälte!</p>
+              <p className="mt-1 text-sm font-bold opacity-85">En snabb lektion håller din svit vid liv.</p>
             </div>
           </div>
           <PracticeCard />
-          <section id="progress" aria-label="Daily goal" className="scroll-mt-24 rounded-xl border-2 border-border bg-card p-5 shadow-card">
+          <section id="progress" aria-label="Dagens mål" className="scroll-mt-24 rounded-xl border-2 border-border bg-card p-5 shadow-card">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Target className="h-7 w-7 text-coral" strokeWidth={3} />
-                <div><p className="font-black">Daily goal</p><p className="text-sm text-muted-foreground">2 of 3 lessons</p></div>
+                <div><p className="font-black">Dagens mål</p><p className="text-sm text-muted-foreground">2 av 3 lektioner</p></div>
               </div>
               <span className="font-black text-coral">67%</span>
             </div>
@@ -228,7 +228,7 @@ function Index() {
       <nav aria-label="Main navigation" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t-2 border-border bg-card px-3 py-2 lg:hidden">
         <a href="#path-title" className="flex flex-col items-center gap-1 text-primary"><Home className="h-6 w-6 fill-current" /><span className="text-xs font-black">Övningar</span></a>
         <a href="#practice-title" className="flex flex-col items-center gap-1 text-muted-foreground"><BookOpen className="h-6 w-6" /><span className="text-xs font-black">Ämnen</span></a>
-        <a href="#progress" className="flex flex-col items-center gap-1 text-muted-foreground"><BarChart3 className="h-6 w-6" /><span className="text-xs font-black">Progress</span></a>
+        <a href="#progress" className="flex flex-col items-center gap-1 text-muted-foreground"><BarChart3 className="h-6 w-6" /><span className="text-xs font-black">Framsteg</span></a>
       </nav>
     </div>
   );
