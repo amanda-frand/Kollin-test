@@ -1,6 +1,6 @@
 # Kollin test
 
-I want to build a math help website with a similar web design to duolingo
+Build a math help website with a similar web design to duolingo
 
 This project was built with [Lovable](https://lovable.dev).
 
