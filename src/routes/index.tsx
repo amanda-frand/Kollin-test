@@ -76,10 +76,10 @@ function Stat({ icon, value, label }: { icon: ReactNode; value: string; label: s
 
 const lessons = [
   { label: "Absolutbelopp", status: "done", icon: Check },
-  { label: "Derivations definition\n& deriverbarhet", status: "done", icon: Star },
+  { label: "Derivatans definition & deriverbarhet", status: "done", icon: Star },
   { label: "Funktionsinvers", status: "current", icon: Play },
   { label: "Gränsvärde", status: "locked", icon: Lock },
-  { label: "Slumpmässiga\nfrågor", status: "locked", icon: Trophy },
+  { label: "Slumpmässiga frågor", status: "locked", icon: Trophy },
 ] as const;
 
 function LessonPath() {
@@ -99,30 +99,32 @@ function LessonPath() {
           const Icon = lesson.icon;
           const isCurrent = lesson.status === "current";
           return (
-            <div key={lesson.label} className={`relative z-10 flex w-full items-center ${index % 2 === 0 ? "justify-start pl-[18%]" : "justify-end pr-[18%]"}`}>
-              <div className="relative flex flex-col items-center">
-                {isCurrent && (
-                  <div className="absolute -top-11 whitespace-nowrap rounded-lg bg-foreground px-3 py-2 text-xs font-black text-background after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-[6px] after:border-transparent after:border-t-foreground">
-                    BÖRJA HÄR
-                  </div>
-                )}
-                <button
-                  aria-label={`${lesson.label}, ${lesson.status}`}
-                  disabled={lesson.status === "locked"}
-                  onClick={() => {
-                    if (isCurrent) document.getElementById("practice-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
-                  className={`grid h-20 w-20 place-items-center rounded-full border-[7px] transition active:translate-y-1 sm:h-24 sm:w-24 ${
-                    lesson.status === "done"
-                      ? "border-success/30 bg-success text-success-foreground shadow-[0_7px_0_color-mix(in_oklab,var(--success)_65%,var(--foreground))]"
-                      : isCurrent
-                        ? "border-primary/25 bg-primary text-primary-foreground shadow-[0_8px_0_var(--button-shadow)] ring-8 ring-primary/10"
-                        : "border-border bg-muted text-muted-foreground shadow-[0_6px_0_var(--border)]"
-                  }`}
-                >
-                  <Icon className="h-8 w-8 fill-current" strokeWidth={3} />
-                </button>
-                <span className={`mt-3 text-sm font-extrabold ${isCurrent ? "text-primary" : "text-muted-foreground"}`}>{lesson.label}</span>
+            <div key={lesson.label} className={`relative z-10 flex w-full items-center gap-3 sm:gap-5 ${index % 2 === 0 ? "justify-start sm:pl-[12%]" : "justify-end sm:pr-[12%]"}`}>
+              <div className={`flex items-center gap-3 sm:gap-4 ${index % 2 === 0 ? "" : "flex-row-reverse"}`}>
+                <div className="relative shrink-0">
+                  {isCurrent && (
+                    <div className="absolute -top-11 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-foreground px-3 py-2 text-xs font-black text-background after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-[6px] after:border-transparent after:border-t-foreground">
+                      BÖRJA HÄR
+                    </div>
+                  )}
+                  <button
+                    aria-label={`${lesson.label}, ${lesson.status}`}
+                    disabled={lesson.status === "locked"}
+                    onClick={() => {
+                      if (isCurrent) document.getElementById("practice-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                    className={`grid h-20 w-20 place-items-center rounded-full border-[7px] transition active:translate-y-1 sm:h-24 sm:w-24 ${
+                      lesson.status === "done"
+                        ? "border-success/30 bg-success text-success-foreground shadow-[0_7px_0_color-mix(in_oklab,var(--success)_65%,var(--foreground))]"
+                        : isCurrent
+                          ? "border-primary/25 bg-primary text-primary-foreground shadow-[0_8px_0_var(--button-shadow)] ring-8 ring-primary/10"
+                          : "border-border bg-muted text-muted-foreground shadow-[0_6px_0_var(--border)]"
+                    }`}
+                  >
+                    <Icon className="h-8 w-8 fill-current" strokeWidth={3} />
+                  </button>
+                </div>
+                <span className={`max-w-36 text-sm font-extrabold leading-snug sm:max-w-48 ${isCurrent ? "text-primary" : "text-muted-foreground"}`}>{lesson.label}</span>
               </div>
             </div>
           );
@@ -133,10 +135,10 @@ function LessonPath() {
 }
 
 function PracticeCard() {
-  const answers = [7, 8, 9, 10];
-  const [selected, setSelected] = useState<number | null>(null);
+  const answers = ["0", "1", "−1", "∞"];
+  const [selected, setSelected] = useState<string | null>(null);
   const [checked, setChecked] = useState(false);
-  const correct = selected === 8;
+  const correct = selected === "1";
 
   const checkAnswer = () => {
     if (selected !== null) setChecked(true);
@@ -152,8 +154,17 @@ function PracticeCard() {
         <Mascot small />
       </div>
       <div className="p-5 sm:p-6">
-        <p className="text-sm font-bold text-muted-foreground">Lös denna gränsvärde</p>
-        <p className="my-6 text-center text-5xl font-black text-foreground" aria-label="11 minus 3">11 − 3 = ?</p>
+        <p className="text-sm font-bold text-muted-foreground">Lös standardgränsvärdet</p>
+        <div className="my-6 flex items-center justify-center gap-3" aria-label="Gränsvärdet av sin x delat med x när x går mot noll">
+          <span className="text-3xl font-black text-foreground">
+            lim<sub className="text-xs">x→0</sub>
+          </span>
+          <span className="flex flex-col items-center leading-none text-foreground">
+            <span className="text-4xl font-black">sin(x)</span>
+            <span className="mt-1 w-full border-t-[3px] border-foreground pt-1 text-4xl font-black">x</span>
+          </span>
+          <span className="text-4xl font-black text-foreground">= ?</span>
+        </div>
         <div className="grid grid-cols-2 gap-3">
           {answers.map((answer) => (
             <Button
@@ -169,7 +180,7 @@ function PracticeCard() {
         </div>
         {checked && (
           <div role="status" className={`mt-5 animate-pop rounded-lg p-4 ${correct ? "bg-success/10 text-success" : "bg-coral/10 text-coral"}`}>
-            <p className="font-black">{correct ? "Strålande! Helt rätt." : "Nästan! Försök räkna tre steg bakåt."}</p>
+            <p className="font-black">{correct ? "Strålande! Helt rätt." : "Nästan! Fundera på vad kvoten närmar sig när x blir allt mindre."}</p>
           </div>
         )}
         <Button onClick={checkAnswer} disabled={selected === null} className="mt-5 w-full">
