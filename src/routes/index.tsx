@@ -99,33 +99,31 @@ function LessonPath() {
           const Icon = lesson.icon;
           const isCurrent = lesson.status === "current";
           return (
-            <div key={lesson.label} className={`relative z-10 flex w-full items-center gap-3 sm:gap-5 ${index % 2 === 0 ? "justify-start sm:pl-[12%]" : "justify-end sm:pr-[12%]"}`}>
-              <div className={`flex items-center gap-3 sm:gap-4 ${index % 2 === 0 ? "" : "flex-row-reverse"}`}>
-                <div className="relative shrink-0">
-                  {isCurrent && (
-                    <div className="absolute -top-11 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-foreground px-3 py-2 text-xs font-black text-background after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-[6px] after:border-transparent after:border-t-foreground">
-                      BÖRJA HÄR
-                    </div>
-                  )}
-                  <button
-                    aria-label={`${lesson.label}, ${lesson.status}`}
-                    disabled={lesson.status === "locked"}
-                    onClick={() => {
-                      if (isCurrent) document.getElementById("practice-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }}
-                    className={`grid h-20 w-20 place-items-center rounded-full border-[7px] transition active:translate-y-1 sm:h-24 sm:w-24 ${
-                      lesson.status === "done"
-                        ? "border-success/30 bg-success text-success-foreground shadow-[0_7px_0_color-mix(in_oklab,var(--success)_65%,var(--foreground))]"
-                        : isCurrent
-                          ? "border-primary/25 bg-primary text-primary-foreground shadow-[0_8px_0_var(--button-shadow)] ring-8 ring-primary/10"
-                          : "border-border bg-muted text-muted-foreground shadow-[0_6px_0_var(--border)]"
-                    }`}
-                  >
-                    <Icon className="h-8 w-8 fill-current" strokeWidth={3} />
-                  </button>
-                </div>
-                <span className={`max-w-36 text-sm font-extrabold leading-snug sm:max-w-48 ${isCurrent ? "text-primary" : "text-muted-foreground"}`}>{lesson.label}</span>
+            <div key={lesson.label} className={`relative z-10 flex w-full flex-col ${index % 2 === 0 ? "items-start pl-3 sm:pl-[10%]" : "items-end pr-3 sm:pr-[10%]"}`}>
+              <div className="relative shrink-0">
+                {isCurrent && (
+                  <div className="absolute -top-11 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-foreground px-3 py-2 text-xs font-black text-background after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-[6px] after:border-transparent after:border-t-foreground">
+                    BÖRJA HÄR
+                  </div>
+                )}
+                <button
+                  aria-label={`${lesson.label}, ${lesson.status}`}
+                  disabled={lesson.status === "locked"}
+                  onClick={() => {
+                    if (isCurrent) document.getElementById("practice-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className={`grid h-20 w-20 place-items-center rounded-full border-[7px] transition active:translate-y-1 sm:h-24 sm:w-24 ${
+                    lesson.status === "done"
+                      ? "border-success/30 bg-success text-success-foreground shadow-[0_7px_0_color-mix(in_oklab,var(--success)_65%,var(--foreground))]"
+                      : isCurrent
+                        ? "border-primary/25 bg-primary text-primary-foreground shadow-[0_8px_0_var(--button-shadow)] ring-8 ring-primary/10"
+                        : "border-border bg-muted text-muted-foreground shadow-[0_6px_0_var(--border)]"
+                  }`}
+                >
+                  <Icon className="h-8 w-8 fill-current" strokeWidth={3} />
+                </button>
               </div>
+              <span className={`mt-3 max-w-36 px-1 text-center text-sm font-extrabold leading-snug sm:max-w-48 ${isCurrent ? "text-primary" : "text-muted-foreground"}`}>{lesson.label}</span>
             </div>
           );
         })}
