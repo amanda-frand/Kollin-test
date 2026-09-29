@@ -87,10 +87,10 @@ function LessonPath() {
     <section aria-labelledby="path-title" className="relative mx-auto w-full max-w-xl pb-8">
       <div className="mb-8 flex items-end justify-between">
         <div>
-          <p className="text-sm font-black uppercase text-secondary">ÄMNEN</p>
+          <p className="text-sm font-black uppercase text-secondary">ENVARIABELANALYS</p>
           <h1 id="path-title" className="mt-1 font-display text-3xl font-black text-foreground sm:text-4xl">Funktionslära</h1>
         </div>
-        <span className="rounded-lg bg-secondary/10 px-3 py-2 text-sm font-black text-secondary">8 / 15</span>
+        <span className="rounded-lg bg-secondary/10 px-3 py-2 text-sm font-black text-secondary">2 / 7</span>
       </div>
 
       <div className="relative flex flex-col items-center gap-7">
