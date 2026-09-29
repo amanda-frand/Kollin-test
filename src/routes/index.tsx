@@ -159,7 +159,7 @@ function PracticeCard() {
           </span>
           <span className="flex flex-col items-center leading-none text-foreground">
             <span className="text-4xl font-black">sin(x)</span>
-            <span className="mt-1 w-full border-t-[3px] border-foreground pt-1 text-4xl font-black">x</span>
+            <span className="mt-1 w-full border-t-[3px] border-foreground pt-1 text-center text-4xl font-black">x</span>
           </span>
           <span className="text-4xl font-black text-foreground">= ?</span>
         </div>
