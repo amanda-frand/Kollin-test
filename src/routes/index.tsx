@@ -1,14 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  BarChart3,
-  BookOpen,
   Check,
   ChevronRight,
-  Flame,
-  Heart,
-  Home,
   Lock,
-  Medal,
   Play,
   Sparkles,
   Star,
@@ -61,15 +55,6 @@ function Mascot({ small = false }: { small?: boolean }) {
       </div>
       <div className="absolute bottom-[28%] left-[37%] h-[10%] w-[28%] rounded-b-full border-b-[3px] border-foreground" />
       <Sparkles className="absolute -right-1 top-0 h-5 w-5 text-sun" aria-hidden="true" />
-    </div>
-  );
-}
-
-function Stat({ icon, value, label }: { icon: ReactNode; value: string; label: string }) {
-  return (
-    <div className="flex items-center gap-2" aria-label={`${label}: ${value}`}>
-      {icon}
-      <span className="font-black text-foreground">{value}</span>
     </div>
   );
 }
@@ -192,53 +177,31 @@ function PracticeCard() {
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background pb-24 lg:pb-8">
-      <header className="sticky top-0 z-30 border-b-2 border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-4 sm:px-6">
-          <div className="flex items-center gap-3">
-            <div className="grid h-10 w-10 rotate-3 place-items-center rounded-lg bg-secondary text-xl font-black text-secondary-foreground shadow-[0_4px_0_color-mix(in_oklab,var(--secondary)_65%,var(--foreground))]">K</div>
-            <span className="font-display text-2xl font-black text-primary">Kollin</span>
-          </div>
-          <div className="flex items-center gap-4 sm:gap-7">
-            <Stat icon={<Flame className="h-6 w-6 fill-coral text-coral" />} value="12" label="Dagar i rad" />
-            <Stat icon={<Heart className="h-6 w-6 fill-primary text-primary" />} value="5" label="Liv" />
-            <div className="hidden sm:block"><Stat icon={<Medal className="h-6 w-6 text-sun" />} value="840" label="Poäng" /></div>
+    <main className="mx-auto grid max-w-6xl gap-12 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start lg:py-12">
+      <LessonPath />
+
+      <aside className="space-y-5 lg:sticky lg:top-24">
+        <div className="flex items-center gap-4 rounded-xl bg-primary px-5 py-5 text-primary-foreground shadow-button">
+          <Mascot small />
+          <div>
+            <p className="text-lg font-black">Hej, sifferhjälte!</p>
+            <p className="mt-1 text-sm font-bold opacity-85">En snabb lektion håller din svit vid liv.</p>
           </div>
         </div>
-      </header>
-
-      <main className="mx-auto grid max-w-6xl gap-12 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1fr)_380px] lg:items-start lg:py-12">
-        <LessonPath />
-
-        <aside className="space-y-5 lg:sticky lg:top-24">
-          <div className="flex items-center gap-4 rounded-xl bg-primary px-5 py-5 text-primary-foreground shadow-button">
-            <Mascot small />
-            <div>
-              <p className="text-lg font-black">Hej, sifferhjälte!</p>
-              <p className="mt-1 text-sm font-bold opacity-85">En snabb lektion håller din svit vid liv.</p>
+        <PracticeCard />
+        <section id="progress" aria-label="Dagens mål" className="scroll-mt-24 rounded-xl border-2 border-border bg-card p-5 shadow-card">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Target className="h-7 w-7 text-coral" strokeWidth={3} />
+              <div><p className="font-black">Dagens mål</p><p className="text-sm text-muted-foreground">2 av 3 lektioner</p></div>
             </div>
+            <span className="font-black text-coral">67%</span>
           </div>
-          <PracticeCard />
-          <section id="progress" aria-label="Dagens mål" className="scroll-mt-24 rounded-xl border-2 border-border bg-card p-5 shadow-card">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Target className="h-7 w-7 text-coral" strokeWidth={3} />
-                <div><p className="font-black">Dagens mål</p><p className="text-sm text-muted-foreground">2 av 3 lektioner</p></div>
-              </div>
-              <span className="font-black text-coral">67%</span>
-            </div>
-            <div className="mt-4 h-3 overflow-hidden rounded-full bg-progress-track">
-              <div className="h-full w-2/3 rounded-full bg-coral" />
-            </div>
-          </section>
-        </aside>
-      </main>
-
-      <nav aria-label="Main navigation" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t-2 border-border bg-card px-3 py-2 lg:hidden">
-        <a href="#path-title" className="flex flex-col items-center gap-1 text-primary"><Home className="h-6 w-6 fill-current" /><span className="text-xs font-black">Övningar</span></a>
-        <a href="#practice-title" className="flex flex-col items-center gap-1 text-muted-foreground"><BookOpen className="h-6 w-6" /><span className="text-xs font-black">Ämnen</span></a>
-        <a href="#progress" className="flex flex-col items-center gap-1 text-muted-foreground"><BarChart3 className="h-6 w-6" /><span className="text-xs font-black">Framsteg</span></a>
-      </nav>
-    </div>
+          <div className="mt-4 h-3 overflow-hidden rounded-full bg-progress-track">
+            <div className="h-full w-2/3 rounded-full bg-coral" />
+          </div>
+        </section>
+      </aside>
+    </main>
   );
 }

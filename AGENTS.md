@@ -13,3 +13,4 @@
 
 - Keep the first release frontend-only with lesson state in React, because persistent accounts and progress were not requested.
 - Use a semantic-token-first playful learning design, so all future math experiences share the same accessible visual language.
+- Shared page chrome (header with stats, bottom nav) lives in src/components/site-chrome.tsx and is mounted once in src/routes/__root.tsx around <Outlet />, so / and /amnen stay in sync.
