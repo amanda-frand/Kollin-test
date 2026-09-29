@@ -1,24 +1,23 @@
+
 # Kollin test
  **screenshots/demo-sektion** 
- 
+ <img width="800" height="3730" alt="id-preview-funktionslära" src="https://github.com/user-attachments/assets/eb3012e2-c10d-4d3d-a934-923de858368c" />
+ <img width="800" height="1876" alt="id-preview-ämnen" src="https://github.com/user-attachments/assets/4e280c11-8ad6-4463-8574-88ff2b566806" />
 
-Build a math help website with a similar web design to duolingo
+Demo test för förslag till Kollins webbsida (med inspiration av duolingos interface)
 
-This project was built with [Lovable](https://lovable.dev).
-
-
+Projektet är byggd med hjälp av [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d6c2d0a9-bbb4-422c-a970-09d751d0224f).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
+Länk till projektet: [Lovable editor](https://lovable.dev/projects/d6c2d0a9-bbb4-422c-a970-09d751d0224f).
+**Om:**
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
 - **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+**Man kan jobba lokalt genom**: You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
 git clone <this-repository-url>
