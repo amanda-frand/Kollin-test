@@ -33,11 +33,11 @@ export function BottomNav() {
   const item = (active: boolean) => `flex flex-col items-center gap-1 ${active ? "text-primary" : "text-muted-foreground"}`;
   return (
     <nav aria-label="Main navigation" className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t-2 border-border bg-card px-3 py-2 lg:hidden">
-      <Link to="/" activeOptions={{ exact: true }} className={({ isActive }) => item(isActive)}>
+      <Link to="/" activeOptions={{ exact: true }} className={({ isActive }: { isActive: boolean }) => item(isActive)}>
         <Home className="h-6 w-6" />
         <span className="text-xs font-black">Övningar</span>
       </Link>
-      <Link to="/amnen" activeOptions={{ exact: true }} className={({ isActive }) => item(isActive)}>
+      <Link to="/amnen" activeOptions={{ exact: true }} className={({ isActive }: { isActive: boolean }) => item(isActive)}>
         <BookOpen className="h-6 w-6" />
         <span className="text-xs font-black">Ämnen</span>
       </Link>
