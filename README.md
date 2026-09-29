@@ -2,8 +2,8 @@
 # Kollin test
 
  <img width="800" height="3730" alt="id-preview-funktionslära" src="https://github.com/user-attachments/assets/eb3012e2-c10d-4d3d-a934-923de858368c" />
- <img width="800" height="1876" alt="id-preview-ämnen" src="https://github.com/user-attachments/assets/4e280c11-8ad6-4463-8574-88ff2b566806" />
- <img width="1290" height="2814" alt="id-previw-ffunktionslära" src="https://github.com/user-attachments/assets/934a0427-04bd-4f61-b1af-916bfd789fe8" />
+ <img width="800" height="3730" alt="id-preview-ämnen" src="https://github.com/user-attachments/assets/4e280c11-8ad6-4463-8574-88ff2b566806" />
+
 
 
 Demo test för förslag till Kollins webbsida (med inspiration av duolingos interface)
