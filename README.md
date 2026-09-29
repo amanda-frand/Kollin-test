@@ -1,8 +1,12 @@
 # Kollin test
+ **screenshots/demo-sektion** 
+ 
 
 Build a math help website with a similar web design to duolingo
 
 This project was built with [Lovable](https://lovable.dev).
+
+
 
 ## Build with Lovable
 
