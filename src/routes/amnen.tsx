@@ -33,7 +33,7 @@ const topics: { label: string; detail: string; status: TopicStatus; icon: Lucide
     label: lesson.label,
     detail: lessonDetail(lesson, index),
     status: lesson.status,
-    icon: [Divide, TrendingUp, Repeat, Lock, Shuffle][index],
+    icon: [Divide, TrendingUp, Repeat, Lock, Shuffle][index] as LucideIcon,
   }));
 
 function AmnenPage() {

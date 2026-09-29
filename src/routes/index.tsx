@@ -9,6 +9,7 @@ import {
   Target,
   Trophy,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useState, type ButtonHTMLAttributes, type ReactNode } from "react";
 import {
   lessons as lessonData,
@@ -16,6 +17,7 @@ import {
   unitCategory,
   unitLessonCount,
   unitName,
+  type Lesson,
 } from "../lib/lessons";
 
 export const Route = createFileRoute("/")({
@@ -66,8 +68,8 @@ function Mascot({ small = false }: { small?: boolean }) {
   );
 }
 
-const lessonIcons = [Check, Star, Play, Lock, Trophy];
-const lessons = lessonData.map((lesson, index) => ({ ...lesson, icon: lessonIcons[index] }));
+const lessonIcons: LucideIcon[] = [Check, Star, Play, Lock, Trophy];
+const lessons: (Lesson & { icon: LucideIcon })[] = lessonData.map((lesson, index) => ({ ...lesson, icon: lessonIcons[index]! }));
 
 function LessonPath() {
   return (
