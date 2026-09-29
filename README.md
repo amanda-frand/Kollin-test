@@ -39,6 +39,6 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-📌 Status
+## 📌 Status
 
 Detta repository innehåller en demo/prototyp och är främst framtaget för att visa ett möjligt upplägg och användargränssnitt för Kollins webbplats.
