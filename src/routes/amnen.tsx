@@ -1,6 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check, ChevronRight, Divide, Lock, Play, Repeat, Shuffle, TrendingUp } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import {
+  currentLesson,
+  currentPercent,
+  lessonDetail,
+  lessons as lessonData,
+  lessonsCompleted,
+  unitLessonCount,
+  unitName,
+  unitProgressPercent,
+} from "../lib/lessons";
 
 export const Route = createFileRoute("/amnen")({
   head: () => ({
@@ -18,13 +28,13 @@ export const Route = createFileRoute("/amnen")({
 
 type TopicStatus = "done" | "current" | "locked";
 
-const topics: { label: string; detail: string; status: TopicStatus; icon: LucideIcon }[] = [
-  { label: "Absolutbelopp", detail: "Klart — 12 av 12 övningar", status: "done", icon: Divide },
-  { label: "Derivatans definition & deriverbarhet", detail: "Klart — 9 av 9 övningar", status: "done", icon: TrendingUp },
-  { label: "Funktionsinvers", detail: "3 av 5 övningar klara", status: "current", icon: Repeat },
-  { label: "Gränsvärde", detail: "Låst — klara Funktionsinvers först", status: "locked", icon: Lock },
-  { label: "Slumpmässiga frågor", detail: "Låst", status: "locked", icon: Shuffle },
-];
+const topics: { label: string; detail: string; status: TopicStatus; icon: LucideIcon }[] =
+  lessonData.map((lesson, index) => ({
+    label: lesson.label,
+    detail: lessonDetail(lesson, index),
+    status: lesson.status,
+    icon: [Divide, TrendingUp, Repeat, Lock, Shuffle][index] as LucideIcon,
+  }));
 
 function AmnenPage() {
   return (
@@ -42,11 +52,11 @@ function AmnenPage() {
         </span>
         <div className="min-w-0 flex-1">
           <p className="text-xs font-black uppercase text-primary">Pågående</p>
-          <p className="mt-0.5 truncate font-black text-foreground">Funktionslära</p>
+          <p className="mt-0.5 truncate font-black text-foreground">{unitName}</p>
           <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-progress-track">
-            <div className="h-full w-[29%] rounded-full bg-primary" />
+            <div className="h-full rounded-full bg-primary" style={{ width: `${unitProgressPercent}%` }} />
           </div>
-          <p className="mt-1 text-xs font-bold text-muted-foreground">2 av 7 lektioner</p>
+          <p className="mt-1 text-xs font-bold text-muted-foreground">{lessonsCompleted} av {unitLessonCount} lektioner</p>
         </div>
         <ChevronRight className="h-6 w-6 shrink-0 text-muted-foreground" strokeWidth={3} />
       </Link>
@@ -79,7 +89,7 @@ function AmnenPage() {
                 {isDone && <Check className="h-6 w-6 shrink-0 text-success" strokeWidth={3} />}
                 {isCurrent && (
                   <>
-                    <span className="shrink-0 text-sm font-black text-primary">60%</span>
+                    <span className="shrink-0 text-sm font-black text-primary">{currentPercent}%</span>
                     <ChevronRight className="h-6 w-6 shrink-0 text-primary" strokeWidth={3} />
                   </>
                 )}

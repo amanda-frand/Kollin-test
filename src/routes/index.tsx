@@ -9,7 +9,16 @@ import {
   Target,
   Trophy,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { useState, type ButtonHTMLAttributes, type ReactNode } from "react";
+import {
+  lessons as lessonData,
+  lessonsCompleted,
+  unitCategory,
+  unitLessonCount,
+  unitName,
+  type Lesson,
+} from "../lib/lessons";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,23 +68,18 @@ function Mascot({ small = false }: { small?: boolean }) {
   );
 }
 
-const lessons = [
-  { label: "Absolutbelopp", status: "done", icon: Check },
-  { label: "Derivatans definition & deriverbarhet", status: "done", icon: Star },
-  { label: "Funktionsinvers", status: "current", icon: Play },
-  { label: "Gränsvärde", status: "locked", icon: Lock },
-  { label: "Slumpmässiga frågor", status: "locked", icon: Trophy },
-] as const;
+const lessonIcons: LucideIcon[] = [Check, Star, Play, Lock, Trophy];
+const lessons: (Lesson & { icon: LucideIcon })[] = lessonData.map((lesson, index) => ({ ...lesson, icon: lessonIcons[index]! }));
 
 function LessonPath() {
   return (
     <section aria-labelledby="path-title" className="relative mx-auto w-full max-w-xl pb-8">
       <div className="mb-8 flex items-end justify-between">
         <div>
-          <p className="text-sm font-black uppercase text-secondary">ENVARIABELANALYS</p>
-          <h1 id="path-title" className="mt-1 font-display text-3xl font-black text-foreground sm:text-4xl">Funktionslära</h1>
+          <p className="text-sm font-black uppercase text-secondary">{unitCategory}</p>
+          <h1 id="path-title" className="mt-1 font-display text-3xl font-black text-foreground sm:text-4xl">{unitName}</h1>
         </div>
-        <span className="rounded-lg bg-secondary/10 px-3 py-2 text-sm font-black text-secondary">2 / 7</span>
+        <span className="rounded-lg bg-secondary/10 px-3 py-2 text-sm font-black text-secondary">{lessonsCompleted} / {unitLessonCount}</span>
       </div>
 
       <div className="relative flex flex-col items-center gap-7">
